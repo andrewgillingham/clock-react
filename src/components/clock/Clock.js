@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { HourHand, MinuteHand, SecondHand } from './ClockHands';
+import { setTitle } from '../../services/title';
 
 const StyledClock = styled.svg`
   width: 250px;
@@ -55,6 +56,7 @@ class Clock extends Component {
   }
 
   render() {
+    setTitle(`${this.state.date.toLocaleTimeString()} | ${this.state.date.toLocaleDateString()}`);
     let hourLines = [];
     let i = 0;
     while (i < 12) {
